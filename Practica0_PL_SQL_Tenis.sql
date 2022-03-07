@@ -84,6 +84,7 @@ BEGIN
     IF vPistasLibres%NOTFOUND
     THEN
         CLOSE vPistasLibres;
+        ROLLBACK; -- Si no la transacción se queda abierta
         RETURN 0;
     END IF;
 
@@ -94,7 +95,7 @@ BEGIN
 END;
 /
 
-/*
+
 SET SERVEROUTPUT ON
 declare
  resultado integer;
@@ -122,5 +123,5 @@ begin
   
 end;
 /
-*/
+
 
